@@ -1,0 +1,15 @@
+﻿@model SendMessageModel
+
+<form method="post" asp-action="messages" asp-controller="Authorized">
+	<label asp-for="MessageTo">Кому</label>
+	<input asp-for="MessageTo"/>
+
+	<label asp-for="MessageTitle">Заголовок</label>
+	<input asp-for="MessageTitle" />
+
+	<label asp-for="MessageText"></label>
+	<textarea asp-for="MessageText">
+	</textarea>
+	<button type="submit">Send</button>
+	@ViewData["Message"]
+</form>

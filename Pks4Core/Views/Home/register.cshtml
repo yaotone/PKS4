@@ -1,0 +1,22 @@
+﻿@model RegisterModel
+<div class="auth_container">
+    <form method="post" asp-controller="Home" asp-action="register_process">
+        <label asp-for="first_name"></label>
+        <input asp-for="first_name"/>
+        <span asp-validation-for="first_name"></span>
+        <label asp-for="second_name"></label>
+        <input asp-for="second_name" />
+        <span asp-validation-for="second_name"></span>
+        <label asp-for="third_name"></label>
+        <input asp-for="third_name" />
+        <span asp-validation-for="third_name"></span>
+        <label asp-for="login"></label>
+        <input asp-for="login" />
+        <span asp-validation-for="login"></span>
+        <label asp-for="password"></label>
+        <input asp-for="password" />
+        <span asp-validation-for="password"></span>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+  
+</div>

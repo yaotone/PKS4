@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MessageModel>
+
+<table class="table">
+	<tr><th>Тема</th><th>Дата</th><th>От</th></tr>
+	@foreach (var item in Model)
+	{
+		<tr class="@(item.Status == true ? "readed" : "unreaded")">
+			<td>
+				<a href="#" message-id="@item.Id" onClick='alert("@item.MessageText")'>@item.MessageTitle</a>
+			</td>
+			<td>@item.SendingTime</td>
+			<td>@item.From</td>
+		</tr>
+	}
+
+</table>

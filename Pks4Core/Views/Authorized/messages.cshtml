@@ -1,0 +1,37 @@
+﻿﻿@{
+	ViewData["Title"] = "Messages";
+}
+@model Tuple<FIlterModel, SendMessageModel, List<MessageModel>>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<p>Send message</p>
+@await Html.PartialAsync("SendMessage", Model.Item2);
+
+@await Html.PartialAsync("FilterMessages", Model.Item1);
+
+@await Html.PartialAsync("MessagesTable", Model.Item3);
+
+<script>
+	$(document).ready(function () {
+		let unreadLines = document.querySelectorAll(".unreaded");
+		for (let i = 0; i < unreadLines.length; i++) {
+			unreadLines[i].style.background = 'purple';
+		}
+
+		let readLines = document.querySelectorAll(".readed");
+		for (let i = 0; i < readLines.length; i++) {
+			readLines[i].style.background = 'white';
+		}
+
+		$('table a').click(function (e) {
+			e.preventDefault();
+			var messageId = $(this).attr('message-id');
+			$.post('/Authorized/ReadedMarking/' + messageId, function () {
+				$(this).closest('tr').removeClass('unreaded').addClass('readed').css('background-color', 'white');
+			}.bind(this));
+		});
+	});
+</script>

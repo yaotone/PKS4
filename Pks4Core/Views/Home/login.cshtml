@@ -1,0 +1,11 @@
+﻿@model LoginModel
+
+<form method="post" asp-controller="Home" asp-action="login_process">
+    <label asp-for="login"></label>
+    <input asp-for="login" />
+    <span asp-validation-for="login"></span>
+    <label asp-for="password"></label>
+    <input asp-for="password" />
+    <span asp-validation-for="password"></span>
+    <button type="submit">Войти</button>
+</form>

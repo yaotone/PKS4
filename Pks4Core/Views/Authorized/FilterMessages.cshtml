@@ -1,0 +1,6 @@
+﻿@model FIlterModel
+<form method="get" asp-action="messages" asp-controller="Authorized">
+	<label asp-for="Status"></label>
+	<input type="checkbox" asp-for="Status" />
+	<button type="submit">Sort</button>
+</form>
